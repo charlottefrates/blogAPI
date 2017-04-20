@@ -6,7 +6,7 @@ var data = { };
 
 //API POST request
 var newBlogEntry    = {
-                         "url": "localhost:3000/blog-post",
+                         "url": "http://localhost:3000/blog-post",
                          "method": "POST",
                          "data":JSON.stringify(data)
                     };
@@ -31,17 +31,16 @@ $('#submit').on('click', function(){
      //updates data variable into JSON string
      newBlogEntry.data = JSON.stringify(data);
 
+     console.log(data);
+
      $.ajax(newBlogEntry).done(function (response) {
           response.forEach(function(blog_entry){
 
            var blogTemplate = `
-
-           <article class="blog-entry">
-              <h1 class="blog-title">${blog_entry.title}</h1>
-              <p class="lead">by <a href="#">${blog_entry.author}</a></p>
+              <h1 class="blog-title">${title}</h1>
+              <p class="lead">by <a href="#">${author}</a></p>
               <hr>
-              <p class="blog-content lead">${blog_entry.content}</p>
-           </article>`;
+              <p class="blog-content lead">${content}</p>`;
 
            console.log(blog_entry);
            $('#blogposts').prepend(blogTemplate);
@@ -70,6 +69,8 @@ $(document).ready(function () {
      else{greeting="Welcome Dude"}
 
      alert(greeting);
+
+     /*t-------Event handlers on load------------------------------------*/
 
      $('#new').on('click',function (){
           $('#blogposts').addClass('hidden');
