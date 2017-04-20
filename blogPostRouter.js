@@ -48,7 +48,7 @@ router.get('/', (req, res) => {
 // if not,log an error and return a 400 status code. if okay,
 // add new item to BlogPosts and return it with a 201.
 router.post('/', jsonParser, (req, res) => {
-  // ensure `name` and `budget` are in request body
+  // ensure `title`, 'content' and `author` are in request body
   const requiredFields = ['title', 'content','author'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -80,7 +80,7 @@ router.delete('/:id', (req, res) => {
 // if problems with any of that, log error and send back status code 400.
 // otherwise call `BlogPosts.update` with updated item.
 router.put('/:id', jsonParser, (req, res) => {
-  const requiredFields = ['title', 'content','author'];
+  const requiredFields = ['title', 'content','author','id'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     //checking is recquired field is in the reqeust
