@@ -4,14 +4,53 @@ var title, content, author;
 //variable that holds blog entries
 var data = { };
 
+// API get reqeust
+var firstRequest = {
+                              "url": "http://localhost:3000/blog-post",
+                              "dataType": "json",
+                              "contentType":"application/json; charset=utf-8",
+                              "method": "GET",
+                         };
+
+
 //API POST request
 var newBlogEntry    = {
                          "url": "http://localhost:3000/blog-post",
+                         "dataType": "json",
+                         "contentType":"application/json; charset=utf-8",
                          "method": "POST",
                          "data":JSON.stringify(data)
                     };
+//Captures original API preset posts
+var preSetPosts = { };
 
-$('#submit').on('click', function(){
+//Renders Posts into DOM
+function showPosts(){
+     $.each(preSetPosts, function (index, value) {
+          console.log(value.title);
+          console.log(value.content);
+          console.log(value.author);
+
+          var blogTemplate = '<h1 class="blog-title">'
+                              + value.title
+                              + '</h1>'
+                              + '<p class="lead">by <a href="#">'
+                              + value.author
+                              + '</a></p>'
+                              + '<hr>'
+                              + '<p class="blog-content lead">'
+                              + value.content
+                              + '</p>';
+
+          $('#blogposts').append(blogTemplate);;
+
+     });
+
+}
+
+
+
+$('#submit').on('click', function(event){
      event.preventDefault();
 
      // updates global variables based on user input
@@ -34,19 +73,22 @@ $('#submit').on('click', function(){
      console.log(data);
 
      $.ajax(newBlogEntry).done(function (response) {
-          response.forEach(function(blog_entry){
-
-           var blogTemplate = `
-              <h1 class="blog-title">${title}</h1>
-              <p class="lead">by <a href="#">${author}</a></p>
-              <hr>
-              <p class="blog-content lead">${content}</p>`;
-
-           console.log(blog_entry);
-           $('#blogposts').prepend(blogTemplate);
-           console.log ('blog entry added');
-          });
+          console.log(response);
      });
+
+});
+
+$('#home').on('click', function(event){
+     event.preventDefault();
+     $("#blogposts").empty();
+
+     $.ajax(firstRequest).done(function (response) {
+          //updates preSetPosts with any new additional posts
+          preSetPosts = eval(response);
+          console.log (preSetPosts);
+          showPosts();
+          });
+
 
 });
 
@@ -55,22 +97,12 @@ $('#submit').on('click', function(){
 
 $(document).ready(function () {
 
-     /*this script displays a greeting to the user based upon current time*/
-
-      var   today= new Date(); //Date object
-      var   hourNow= today.getHours(); //Find current hour
-      var   greeting;
-
-     //Display the right greeting based on current time
-
-     if (hourNow>18) {greeting=" Good evening";}
-     else if (hourNow >12) {greeting="Good afternoon";}
-     else if (hourNow >0) {greeting="Good morning";}
-     else{greeting="Welcome Dude"}
-
-     alert(greeting);
-
-     /*t-------Event handlers on load------------------------------------*/
+     $.ajax(firstRequest).done(function (response) {
+          //updates preSetPosts with any new additional posts
+          preSetPosts = eval(response);
+          console.log (preSetPosts);
+          showPosts();
+          });
 
      $('#new').on('click',function (){
           $('#blogposts').addClass('hidden');
@@ -84,12 +116,3 @@ $(document).ready(function () {
 
 
 });
-
-
-/*
-
-
-
-
-
-*/

@@ -23,6 +23,12 @@ const {BlogPosts} = require('./models');
 // added blog posts with these params:title, content, author,
 // Pre-set data to look at when the server starts
 BlogPosts.create(
+     'The Dawn of a new Era',
+     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!Lorem ipsum dolor sit amet, consectetur adipisicing elit.Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!',
+     'Charlotte Frates'
+);
+
+BlogPosts.create(
      'The Fox vs The Dog',
      'The quick brown fox jumps over the lazy dog.English-language pangram—a sentence that contains all of the letters of the alphabet. It is commonly used for touch-typing practice, testing typewriters and computer keyboards, displaying examples of fonts, and other applications involving text where the use of all letters in the alphabet is desired. Owing to its brevity and coherence, it has become widely known.',
      'Charlotte Frates'
@@ -33,6 +39,9 @@ BlogPosts.create(
      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!',
      'Charlotte Frates'
 );
+
+
+
 
 
 // when the root of this router is called with GET, return
@@ -48,6 +57,7 @@ router.get('/', (req, res) => {
 // if not,log an error and return a 400 status code. if okay,
 // add new item to BlogPosts and return it with a 201.
 router.post('/', jsonParser, (req, res) => {
+     console.log(req.body);
   // ensure `title`, 'content' and `author` are in request body
   const requiredFields = ['title', 'content','author'];
   for (let i=0; i<requiredFields.length; i++) {

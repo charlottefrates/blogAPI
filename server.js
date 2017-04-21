@@ -30,9 +30,11 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
+
 // when requests come into `/blog-post` they get routed to blogPostRouter
 //use this to get access to predefined posts stored in postman localhost:3000/blog-post
 app.use('/blog-post', blogPostRouter);
+
 
 
 //app set to PORT 3000

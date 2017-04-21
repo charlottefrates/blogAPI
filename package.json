@@ -1,17 +1,3 @@
-// package.json created through terminal using npm init command
-// STEPS:
-// stepOne - cd to file folder
-// stepTwo - npm install
-// stepThree - npm init
-// stepFour - answer questions
-// stepFive - install dependencies
-//            npm install express --savee
-//            npm install bodyParser --save
-//            npm install uuid --save
-// stepSix -  check if package.json is available on file
-// optional - you can manually add dependecies into package.json but make sure version of middleware is current you can add * to value
-// stepSeven - set up server.js main file
-// StepEight - start server and edit based on need
 
 {
   "name": "blogapi",
