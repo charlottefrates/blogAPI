@@ -38,7 +38,7 @@ function showPosts() {
                value.author +
                '</a></p>' +
                '<hr>' +
-               '<p class="blog-content lead">' +
+               '<p class="blog-content lead" style="white-space:pre">' +
                value.content +
                '</p>';
 
