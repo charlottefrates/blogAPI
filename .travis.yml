@@ -7,3 +7,4 @@ deploy:
   app: npm test
   on:
     repo: charlottefrates/blogAPI
+deploy:app:intense-river-26624
