@@ -1,6 +1,5 @@
 language: node_js
 node_js: node
-deploy:app:radiant-peak-54399
 deploy:
   provider: heroku
   api_key:
