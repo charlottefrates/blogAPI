@@ -38,7 +38,7 @@ function showPosts() {
                value.author +
                '</a></p>' +
                '<hr>' +
-               '<p class="blog-content lead" style="white-space:pre">' +
+               '<p class="blog-content lead">' +
                value.content +
                '</p>';
 
@@ -61,6 +61,9 @@ $('#submit').on('click', function(event) {
      console.log(title);
      console.log(content);
      console.log(author);
+
+     // captures newlines/line breaks
+     content = content.replace(/\n/g, "<br/>");
 
      // updates text variable with user inputted text
      data.title = title;
