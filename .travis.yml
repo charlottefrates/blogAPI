@@ -4,7 +4,6 @@ deploy:
   provider: heroku
   api_key:
     secure: MSGBKAPDSo3DUFuk/4PiD7xT0THU77ye2NjeqpuRMhES4DiArSMVfbfE+vIVgukME4j/5cqTHwUxUhLmRCsSh+v7tyrco4RJgMFliksFDmj4QMSoI8wDek63A5++muX+vP6mdzDGekEhsJYmOaERH0CFEUBISaFSj6ggXEMKHYcCxKjBlSs2pqWHuz3DFdB4SnO2pwjooLG41Bb6xS0XWq6CfrZL/we/zL5oUSntgp7WRDRyOKvjsAD64+91Ybg94Suz6laei5dOW/7Lv0mCWaH1SzrwFfGg8t7mIxTAOJOTvISNaShsQZ5rAsM+Jo+M9rgW+OjLL7Ef4ZnoWV9VUNT8gGYdM6DD/DkEVkIIdlNmBJzMcwbDI6jO71IeLsSSIdSKeQprRuQER6LZydWRjV5tYtBw6FsHVxGVFwUGw4IBoaQX/x0nSBIDGcqcIo7vvtdVMJA10L0SiMRcYoPMA2L+LbbfJ0YZ/l33B5tRsSkHgDp6Vva0Dqq69X/AW8+ruc0WBBx+r3yWFYTiJNUYByicgLneO4w2z5d85pymKtZChRnKAtS6waOWrLVZu7xqpNc3mygtS/s1edDWp1xn8EbqqXIvTw95eYwHUlrI8bYB/1oecOquTXdLrYtxJp7YPh7EzKipdW/RrW0hgBXbk7wTyVF0I0DbUkDGWpRBI9Y=
-  app: npm test
+  app: intense-river-26624
   on:
     repo: charlottefrates/blogAPI
-deploy:app:intense-river-26624
