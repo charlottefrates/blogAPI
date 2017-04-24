@@ -68,7 +68,7 @@ describe('BlogPosts', function() {
   //  status code and that the returned object has an `id`
   it('should add a blog post on POST', function(done) {
     const newPost = { title: 'Some Title', content: 'Some Content', author: 'Charlotte Frates'};
-    //identifies additional response 
+    //identifies additional response
     const expectedKeys = ['id', 'publishDate'].concat(Object.keys(newPost));
 
     chai.request(app)
@@ -116,7 +116,7 @@ describe('BlogPosts', function() {
          content: 'Some content'
        });
        chai.request(app)
-         .put(`/blog-posts/${res.body[0].id}`)
+         .put(`/blog-posts/${res.body.id}`)
          .send(updatedPost)
          .end(function(err, res) {
            res.should.have.status(204);
@@ -136,7 +136,7 @@ describe('BlogPosts', function() {
         .get('/blog-posts')
         .end(function(err, res) {
           chai.request(app)
-            .delete(`/blog-posts/${res.body[0].id}`)
+            .delete(`/blog-posts/${res.body.id}`)
             .end(function(err, res) {
               res.should.have.status(204);
             });
