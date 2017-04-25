@@ -8,7 +8,8 @@ Blog interface
 
 ## Motivation:
 
-To familirize onceself with Node.js, unit tests, CI tests
+To familirize onceself with Node.js, unit tests, CI tests.
+First implementation of both server and client side practices.
 
 ## Document Flow
 
